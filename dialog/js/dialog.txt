@@ -1,0 +1,45 @@
+// 使用构造函数去模拟一个类
+// 类可以提取公共代码  减少代码的冗余
+// es5
+// function Dialog() {
+//     this.name = '123'  //静态属性
+//     this.name = '';
+// }
+
+// Dialog.prototype.init = function() {
+
+// }
+
+// es6
+class Dialog {
+    // 构造函数
+    constructor() {
+        // 实例属性
+        this.name = 123;
+        // this.init()
+    }
+
+    // 实例方法
+    init() { // 来声明一个变量方法
+        console.log(this.name);
+        console.log(this.title);
+    }
+
+    // 静态方法
+    static hello() {
+        console.log('HELLO WORLD!')
+    }
+}
+// 静态属性  静态属性只能在类内部使用
+Dialog.prototype.title = 'this is dialog';
+
+// 静态方法只能被类本身调用
+Dialog.hello();
+
+// Dialog是类
+// dialog是实例对象
+// new Dialog()是实例化过程
+let dialog = new Dialog();
+dialog.init();
+// 实例对象下面的属性，叫做实例属性
+console.log(dialog.name);
